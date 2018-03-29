@@ -1,6 +1,6 @@
 # Farmapet
 
-![foto proyecto](img-readme/proyectoFinal.png)
+![proyectofinal](https://user-images.githubusercontent.com/32287504/38072645-ae20a472-32fd-11e8-9a83-ba7065196f9c.png)
 
 Es un catálogo online de venta de medicamentos para mascotas
 
