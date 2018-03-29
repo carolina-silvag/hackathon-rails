@@ -1,5 +1,7 @@
 # Farmapet
 
+![foto proyecto](img-readme/proyectoFinal.png)
+
 Es un catálogo online de venta de medicamentos para mascotas
 
 Lo que a continuación se presenta es el MVP
