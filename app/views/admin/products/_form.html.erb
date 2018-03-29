@@ -13,8 +13,18 @@
 
   <%= f.input :name %>
   <%= f.input :url %>
+  <%= f.input :description %>
   <%= f.input :quantity %>
   <%= f.input :amount %>
+  <div class="input select optional product_receta">
+    <label class="select optional" for="product_receta">Con receta?</label>
+    <div class="select-wrapper select optional">
+      <select name="product[receta]">
+        <option value="0">No</option>
+        <option value="1" selected="selected">Si</option>
+      </select>
+    </div>
+  
   <%= f.association :category, include_blank: false %>
 
   <%= f.button :submit %>

@@ -1,18 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <p id="notice"><%= notice %></p>
+    <div class="col s6">
+      <p>
+        <strong>Nombre:</strong>
+        <%= @product.name %>
+      </p>
+      <img class="responsive-img" src=<%= @product.url %> alt="">
+    </div>
+    <div class="col s6">
+      <p>
+        <strong>Categoria:</strong>
+        <%= @product.category.name %>
+      </p>
+      <p>$ <%= @product.amount %></p>
+      <p>
+        <strong>Cantidad:</strong>
+        1
+      </p>
+      <p>
+        <% if @product.quantity > 0 %>
+          stock <%= @product.quantity %>
+        <% else %>
+          Sin stock
+        <% end %>
+      </p>
+      <a class="waves-effect waves-light btn"><i class="material-icons right">add_shopping_cart</i>Agregar al carro</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12"></div>
+    <strong>Descripción:</strong>
+    <p><%= @product.description %></p>
+      <%= link_to 'Volver ', products_path,  { :class=>'waves-effect waves-light btn'} %>
+  </div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
-
-<p>
-  <strong>Url:</strong>
-  <%= @product.url %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @product.category.name %>
-</p>
-
-<%= link_to 'Back', products_path %>

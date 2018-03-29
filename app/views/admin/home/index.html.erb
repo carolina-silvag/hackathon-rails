@@ -1,7 +1,69 @@
-<h1>Home Admin</h1>
+<div class="row">
+  <div class="col s3">
+    <ul class="collapsible">
+      <li>
+        <div class="collapsible-header">
+          <div class="col s10">Farmacia</div>
+          <div class="col s2"><i class="material-icons right-align">arrow_drop_down</i></div>
+        </div>
+        <div class="collapsible-body" style="padding: 0 !important">
+          <div class="collection">
+            <% @categories.each do |category| %>
+              <a href="?category_id=<%= category.id %>" class="collection-item"><%= category.name %></a>
+            <% end %>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <div><%= link_to "Agregar Categorias", admin_categories_path %></div>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <div><%= link_to "Agregar Producto", new_admin_product_path %></div>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <div><%= link_to "Clientes", admin_customers_path %></div>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <div class="col s10">Contacto</div>
+          <div class="col s2"><i class="material-icons right-align">arrow_drop_down</i></div>
+        </div>
+        <div class="collapsible-body" style="padding: 0 !important">
 
-<ul>
-  <li><%= link_to "Categories", admin_categories_path %></li>
-  <li><%= link_to "Products", admin_products_path %></li>
-  <li><%= link_to "Customers", admin_customers_path %></li>
-</ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="col s9">  
+    <h5>Productos</h5> 
+    <div class="row">
+      <% @products.each do |product| %>
+      <div class="col s12 m4">
+        <div class="card">
+          <div class="card-image">
+            <img src=<%= product.url %>>
+          </div>
+          <div class="card-content">
+            <p class="left-align"><%= product.name %></p>
+            <p class="right-align"><%= product.category.name %></p>
+          </div>
+          <div class="card-action row">
+            <div class="col s6">
+              <%= link_to "<i class=\"material-icons\">delete</i>".html_safe, [:admin, product], method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+            <div class="col s6">
+              <%= link_to "<i class=\"material-icons\">edit</i>".html_safe, edit_admin_product_path(product) %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div> 
+</div>

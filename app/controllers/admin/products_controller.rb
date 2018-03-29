@@ -1,5 +1,4 @@
-class Admin
-  class ProductsController < ApplicationController
+class Admin::ProductsController < ApplicationController
     before_action :valid_admin, :authenticate_user!
     before_action :set_product, only: [:show, :edit, :update, :destroy]
 
@@ -7,6 +6,11 @@ class Admin
     # GET /products.json
     def index
       @products = Product.all
+      if(params.has_key?(:category_id))
+        @products = Product.where({category_id: params['category_id']})
+      else
+        @products = Product.all
+      end
     end
 
     # GET /products/1
@@ -79,5 +83,4 @@ class Admin
         :category_id
       )
     end
-  end
 end

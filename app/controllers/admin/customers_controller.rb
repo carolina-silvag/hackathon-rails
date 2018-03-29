@@ -1,5 +1,4 @@
-class Admin
-  class CustomersController < ApplicationController
+class Admin::CustomersController < ApplicationController
     before_action :valid_admin, :authenticate_user!
     before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
@@ -76,5 +75,4 @@ class Admin
         :url
       )
     end
-  end
 end

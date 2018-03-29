@@ -1,29 +1,26 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
+  <div class="row">
 
-<p>
-  <strong>Url:</strong>
-  <%= @product.url %>
-</p>
+  <div class="col s12 m12">
 
-<p>
-  <strong>Quantity:</strong>
-  <%= @product.quantity %>
-</p>
+    <div class="card center">
+    
+      <div class="card-content white-text  light-blue">
+        <span class="card-title"><strong><%= @product.name %></strong></span>
+        <p>Url: <%= @product.url %></p>
+        <p>Precio: <%= @product.amount %></p>
+        <p>Cantidad: <%= @product.quantity %></p>
+      </div>
+      <div class="card-action blue-text">
+      <%= link_to "<i class=\"material-icons\">edit</i>".html_safe, edit_admin_product_path(@product) %> 
+      </div>
+    
+    </div>
+  </div>
 
-<p>
-  <strong>Amount:</strong>
-  <%= @product.amount %>
-</p>
+  </div>
 
-<p>
-  <strong>Category:</strong>
-  <%= @product.category.id %>
-</p>
-
-<%= link_to 'Edit', edit_admin_product_path(@product) %> |
-<%= link_to 'Back', admin_products_path %>
+  <%= link_to 'Volver', admin_products_path,  { :class=>'waves-effect waves-light btn'} %>
+</div>

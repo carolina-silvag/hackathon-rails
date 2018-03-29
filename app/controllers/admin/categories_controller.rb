@@ -1,5 +1,4 @@
-class Admin
-  class CategoriesController < ApplicationController
+class Admin::CategoriesController < ApplicationController
     before_action :valid_admin, :authenticate_user!
     before_action :set_category, only: [:show, :edit, :update, :destroy]
 
@@ -76,5 +75,4 @@ class Admin
         :description
       )
     end
-  end
 end

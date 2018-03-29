@@ -1,5 +1,4 @@
-class Customer
-  class ProductsController < ApplicationController
+class Customer::ProductsController < ApplicationController
     before_action :valid_customer, :authenticate_user!
     before_action :set_product, only: [:show]
 
@@ -19,5 +18,4 @@ class Customer
     def set_product
       @product = Product.find(params[:id])
     end
-  end
 end
