@@ -1,0 +1,26 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+
+  <div class="row">
+
+  <div class="col s12 m12">
+
+    <div class="card center">
+    
+      <div class="card-content white-text  light-blue">
+        <span class="card-title"><strong><%= @product.name %></strong></span>
+        <p>Url: <%= @product.url %></p>
+        <p>Precio: <%= @product.amount %></p>
+        <p>Cantidad: <%= @product.quantity %></p>
+      </div>
+      <div class="card-action blue-text">
+      <%= link_to "<i class=\"material-icons\">edit</i>".html_safe, edit_admin_product_path(@product) %> 
+      </div>
+    
+    </div>
+  </div>
+
+  </div>
+
+  <%= link_to 'Volver', admin_products_path,  { :class=>'waves-effect waves-light btn'} %>
+</div>

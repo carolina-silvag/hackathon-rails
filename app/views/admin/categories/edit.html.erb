@@ -1,0 +1,9 @@
+<div class="container">
+  <h2>Editar Categoría</h2>
+
+  <%= link_to "<i class=\"material-icons\">visibility</i>".html_safe, [:admin, @category] , class: "waves-effect waves-light btn" %> 
+
+  <%= render 'form' %>
+  <br>
+  <%= link_to 'Volver', admin_categories_path,  { :class=>'waves-effect waves-light btn'}%>
+</div>

@@ -1,0 +1,43 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+
+  <h2>Lista de Productos</h2>
+
+  <%= link_to 'Nuevo Producto', new_admin_product_path, class: "waves-effect waves-light btn" %>
+
+  <br/>
+
+  <div class="row">
+    <br>
+    <% @products.each do |product| %>
+      <div class="col s12 m6">
+          <nav>
+            <div class="nav-wrapper blue-grey darken-1">
+               <a href="#" class="brand-logo center"><%= product.name %></a>
+            </div>
+          </nav>
+          <!-- end of new code -->
+          <div class="row">
+            <div class="col s6 m6">
+              <div class="card blue-grey lighten-4">  <!-- create the card -->
+                <div class="card-image">              <!-- card image -->
+                <img class="responsive-img" src="<%= product.url %>" >     <!-- img -->
+                </div>
+              </div>
+            </div>
+            <div class="col s6 m6">
+              <!-- add collection classes to the list elements -->    
+              <ul class="collection with-header">
+                <li class="collection-item">Precio: <%= product.amount %></li>
+                <li class="collection-item">Cantidad: <%= product.quantity %></li>
+                <li class="collection-item">Categoría: <%= product.category.id %></li>
+                 <li class="center"><%= link_to link_to "<i class=\"material-icons\">visibility</i>".html_safe, admin_product_path(product) %>
+                <%= link_to link_to "<i class=\"material-icons\">edit</i>".html_safe, edit_admin_product_path(product) %>
+                <%= link_to link_to "<i class=\"material-icons\">delete</i>".html_safe, admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+              </ul>
+          </div>
+          </div>
+      </div>
+    <% end %>
+  </div>
+</div>

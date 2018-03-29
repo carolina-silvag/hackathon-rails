@@ -1,0 +1,104 @@
+<div class="row">
+  <div class="col s3">
+    <ul class="collapsible">
+      <li>
+        <div class="collapsible-header">
+          <div class="col s10">Farmacia</div>
+          <div class="col s2"><i class="material-icons right-align">arrow_drop_down</i></div>
+        </div>
+        <div class="collapsible-body" style="padding: 0 !important">
+          <div class="collection">
+            <% @categories.each do |category| %>
+            <a href="/products?category_id=<%= category.id %>" class="collection-item"><%= category.name %></a> 
+            <% end %>  
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <div class="col s10">Vida Sana</div>
+          <div class="col s2"><i class="material-icons right-align">arrow_drop_down</i></div>
+        </div>
+        <div class="collapsible-body" style="padding: 0 !important">
+          <div class="collection">
+            <a href="#!" class="collection-item">Alvin</a>
+            <a href="#!" class="collection-item active">Alvin</a>
+            <a href="#!" class="collection-item">Alvin</a>
+            <a href="#!" class="collection-item">Alvin</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <div class="col s10">Como Comprar</div>
+          <div class="col s2"><i class="material-icons right-align">arrow_drop_down</i></div>
+        </div>
+        <div class="collapsible-body" style="padding: 0 !important">
+          <div class="collection">
+            <a href="#!" class="collection-item">Con receta</a>
+            <a href="#!" class="collection-item">Sin receta</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <div class="col s10">Quienes somos</div>
+          <div class="col s2"><i class="material-icons right-align">arrow_drop_down</i></div>
+        </div>
+        <div class="collapsible-body" style="padding: 0 !important">
+          <div class="collection">
+            <a href="#!" class="collection-item">Nuestra Tienda</a>
+            <a href="#!" class="collection-item">Nuestros valores</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <div class="col s10">Contacto</div>
+          <div class="col s2"><i class="material-icons right-align">arrow_drop_down</i></div>
+        </div>
+        <div class="collapsible-body" style="padding: 0 !important">
+          <p>Direccion: Ejercito Libertador 2120</p>
+          <p>telefono: 9966775569</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="col s9">  
+    <h5>Lista de Productos</h5> 
+    <div class="row">
+      <% @products.each do |product| %>
+      <div class="col s12 m4">
+        <div class="card">
+          <div class="card-image">
+            <img class="responsive-img" style="height:200"  src=<%= product.url %>>
+          </div>
+          <div class="card-content">
+            <h6 class="center-align"><%= product.name %></h6>
+            <div class="row">
+              <div class="col s6">
+                <p>
+                  <% if product.quantity > 0 %>
+                    stock <%= product.quantity %>
+                  <% else %>
+                    Sin stock
+                  <% end %>
+                </p>
+              </div>
+              <div class="col s6">
+              <p class="right-align">$ <%= product.amount %></p>  
+              </div>
+            </div>
+          </div>
+          <div class="card-action center-align">
+            <%= link_to "<i class=\"material-icons\">visibility</i>".html_safe, product %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div> 
+</div>
+
+
+

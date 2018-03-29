@@ -1,172 +1,66 @@
-# < Shopping >
+# Farmapet
 
-> Preparando el entorno de trabajo para el sistema operativo **Windows**.
+Es un catálogo online de venta de medicamentos para mascotas
 
-> **Nota:** puedes ejecutar la instalación del punto **1** y **2** simultaneamente.
+Lo que a continuación se presenta es el MVP
 
-1. Descargar de https://rubyinstaller.org/downloads/ e instalar, la versión **2.4.3-2** de `ruby`.
-> Si usas **Linux** específicamente distribuciones basadas en `Debian` como lo es `Ubuntu`, puedes ver: https://github.com/rvm/ubuntu_rvm, **RVM** es un manejador de versiones de ruby, para más información: https://rvm.io/
 
-![rubyInstall-0]
+## Descubrimiento e Investigación
 
-[rubyInstall-0]: ./assets/images/Screenshot_1.png
+### User Research
+#### Encuestas y entrevistas
 
-![rubyInstall-1]
+Comenzamos haciendo encuestas online para averiguar los comportamientos de compra de los usuarios.
 
-[rubyInstall-1]: ./assets/images/Screenshot_2.png
+![foto gráfico](img-readme/encuesta-1.jpg)
 
-![rubyInstall-2]
+Cuando sus mascotas son llevadas al veterinario y les recetan medicamentos, el XXXXX% prefiere comprar en el mismo lugar, por lo práctico.
+Pero el XXX% restante prefiere comprar después y cotizar, con el fin de ahorrar. A ese público le sumamos un 3,2% que preiere comprar a través de páginas web de petshops, lo que da un total del XXX% que tiene como prioridad el presupuesto antes que la inmediatez.
 
-[rubyInstall-2]: ./assets/images/Screenshot_3.png
+Ante la pregunta "¿Conoces alguna página web dónde cotizar medicamentos online?", un XXXX% respondió negativamente y solo un XX% respondió que sí.
 
-![rubyInstall-3]
+![foto gráfico](img-readme/encuesta-2.jpg)
 
-[rubyInstall-3]: ./assets/images/Screenshot_4.png
+Estos dos factores consideramos que son importantes, ya que es un público no menor el que no puede darse el lujo de perder dinero por no cotizar antes. 
 
-> Presionamos la tecla **ENTER** para que se instalen los 3 componentes.
+![foto gráfico](img-readme/encuesta-4.jpg)
 
-![rubyInstall-4]
+Existe otro público, más específico, que son los dueños de mascotas que tienen enfermedades específicas y que deben consumir medicamentos de por vida, el que corresponde a un 35,5%. Algunas de estas enermedades mencionadas por los propios afectados son distemper, tumores, artrosis, hipotiroidismo, epilepsia, gingivitis estomatitis, hipertensión, déficit de potasio e insuficiencia cardiaca.
 
-[rubyInstall-4]: ./assets/images/Screenshot_5.png
+Consultando directamente con Johanna Olavarría, veterinaria, nos comentó que si bien mucha gente compra en la misma clínica (si es que ésta tiene los medicamentos), pero que hay otro público importante, de menos presupuesto, que prefiere comprar en otro lugar y primero estudiar los precios. Ocurre también en casos donde el veterinario va a domicilio. 
 
-> En este punto ya culmino la instalación de `ruby` y sus dependencias con el sistema.
 
-> Verificamos con el comando `ruby -v`.
+#### Análisis de mercado
 
-![rubyInstall-5]
+Buscando en internet, descubrimos dos casos de venta web de medicamentos, pero ambos tienen sus falencias.
 
-[rubyInstall-5]: ./assets/images/Screenshot_11.png
+El primer caso es arkanet.cl, en donde tienen un catálogo y algunos de sus productos se venden bajo receta médica. En este caso, para el usuario, el flujo de compra es el tradicional: escoge el producto, lo agrega al carrito, y paga. Y la receta debe ser enviada aparte, vía Whatsapp o por correo electrónico, o sino entregarla en la misma tienda a la hora del retiro.
 
-2. Descargar de `https://www.postgresql.org/download/windows/` e instalar la versión **9.4.17** de `PostgreSQL`. Es un manejador de base de datos relacionales.
-> Si usas **Linux** específicamente distribuciones basadas en `Debian` como lo es `Ubuntu`, puedes ver: https://doc.odoo.com/es/install/linux/postgres/ para complementar.
->
-> Escribe en la terminal:
->>`sudo apt install postgresql postgresql-client
-postgresql-contrib libpq-dev`
->
-> Esto instala el cliente y servidor de la base de datos y algunos scripts de utilería
->
->El paquete `libpq-dev` nos permitirá compilar la gema para **PostgreSQL**.
->
-> Confirma que la instalación terminó adecuadamente:
->
->> `psql --version`
->
-> Para crear un usuario llamado **admin**:
->> sudo su postgres -c psql
->
->> CREATE USER **admin** WITH PASSWORD '**password**';
->
->> ALTER ROLE **admin** WITH CREATEDB;
->
->> `\q`
+![arkanet](img-readme/arkanet.jpg)
 
-Continuamos con la instalación en el sistema operativo **Windows**
+El segundo caso es puntomascotas.cl, pero en su catálogo no tienen productos con receta, por lo que la variedad es muy limitada.
 
-![pgInstall-0]
+![arkanet](img-readme/mercado-puntomascotas.jpg)
 
-[pgInstall-0]: ./assets/images/Screenshot_6.png
+Existen otras webs de tiendas que venden estos productos, pero sin catálogo. La sección se limita a un texto informativo donde cuentan qué tipo de medicamentos venden, o las marcas o solo los datos de atención de la tienda.
 
-![pgInstall-1]
+![pichichus](img-readme/mercado-pichichus.jpg)
+![provet](img-readme/mercado-provet.jpg)
+![agromaipo](img-readme/mercado-agromaipo.jpg)
 
-[pgInstall-1]: ./assets/images/Screenshot_7.png
+### Definición del problema
 
-![pgInstall-2]
+Los usuarios entrevistados presentaban los siguientes problemas:
 
-[pgInstall-2]: ./assets/images/Screenshot_8.png
+* Debían recorrer farmacia por farmacia en busca del medicamento.
+* Muchas veces no encontraban el medicamento porque estaba fuera de stock.
+* Muchas veces al cotizar los precios no los daban por teléfono por lo que se veían obligados a ir presencialmente en su búsqueda.
+* Algunos usuarios tienen mascotas con enfermedades crónicas por lo que continuamente buscan el mejor precio para medicamentos de uso permanente.
 
-![pgInstall-2.0]
+Tras lo anterior y sumado a la falta de oferta de venta de medicamentos online, lo cual facilita la obtención rápida...
 
-[pgInstall-2.0]: ./assets/images/Screenshot_8.1.png
+### Wireframes
 
-![pgInstall-2.1]
+![pichichus](img-readme/wireframes.jpg)
 
-[pgInstall-2.1]: ./assets/images/Screenshot_8.2.png
 
-![pgInstall-2.2]
-
-[pgInstall-2.2]: ./assets/images/Screenshot_8.3.png
-
-![pgInstall-3]
-
-[pgInstall-3]: ./assets/images/Screenshot_9.png
-
-![pgInstall-4]
-
-[pgInstall-4]: ./assets/images/Screenshot_10.png
-
-> Al ejecutar **pgAdmin III** verificamos que se haya instalado. Este es nuestro administrador de base de datos.
-
-![pgInstall-5]
-
-[pgInstall-5]: ./assets/images/Screenshot_12.png
-
-3. Instalamos la gema `rails` desde `https://rubygems.org/` con la instrucción `gem install rails -v 4.2.10 --no-ri --no-rdoc` en un **cmd**.
-
-![railsInstall-0]
-
-[railsInstall-0]: ./assets/images/Screenshot_13.png
-
-![railsInstall-1]
-
-[railsInstall-1]: ./assets/images/Screenshot_14.png
-
-![railsInstall-2]
-
-[railsInstall-2]: ./assets/images/Screenshot_15.png
-
-![railsInstall-3]
-
-[railsInstall-3]: ./assets/images/Screenshot_16.png
-
-![railsInstall-4]
-
-[railsInstall-4]: ./assets/images/Screenshot_17.png
-
-> **Nota:** no se te olvide agregar `--no-ri --no-rdoc`.
-
-![railsInstall-5]
-
-[railsInstall-5]: ./assets/images/Screenshot_18.png
-
-> Verificamos con la instrucción `rails -v`.
-
-![railsInstall-6]
-
-[railsInstall-6]: ./assets/images/Screenshot_19.png
-
-4. Ya disponemos de un proyecto al momento de clonar este repositorio, por lo que puedes saltarte este punto.
-
-> Crearemos un proyecto de `rails` con una configuración de base de datos para `PostgreSQL`.
-
-> Con la instrucción `rails new my-app -d postgresql` en un **cmd**.
-
-![railsApp-0]
-
-[railsApp-0]: ./assets/images/Screenshot_20.png
-
-5. Entramos al proyecto con la instrucción `cd name-app` y configuramos `./config/database.yml` con el username y el password de la base de datos correspondiente, `por ejemplo`:
-
-```yml
-default: &default
-  adapter: postgresql
-  encoding: utf-8
-  pool: 5
-  username: postgres
-  password: password
-  host: localhost
-```
-
-![railsApp-1]
-
-[railsApp-1]: ./assets/images/Screenshot_21.png
-
-> **postgres** es el usuario por defecto con permisos de **Admin**, es recomendable crear uno diferente. Y en `password` debe ir el que configuraste al instalar `PostgreSQL`.
-
-6. Vamos a crear nuestra base de datos con la instrucción `rake db:create` dentro del directorio del proyecto.
-
-7. Con la instrucción `rails s` podremos ver funcionando nuestro servidor en `localhost:3000`.
-
-![railsApp-2]
-
-[railsApp-2]: ./assets/images/Screenshot_22.png
