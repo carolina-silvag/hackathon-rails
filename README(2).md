@@ -1,3 +1,7 @@
+![foto gráfico](img-readme/proyectoFinal.png)
+
+todo el detalle en main
+
 # < Shopping >
 
 ## Algunos comandos importantes para Rails y Heroku
